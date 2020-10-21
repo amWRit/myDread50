@@ -27,6 +27,8 @@ public class LevelGenerator : MonoBehaviour {
 	// this will determine whether we've placed the character controller
 	private bool characterPlaced = false;
 
+	private bool makeFloorHole = false;
+
 	// 2D array representing the map
 	private bool[,] mapData;
 
@@ -55,14 +57,23 @@ public class LevelGenerator : MonoBehaviour {
 
 					// flag as placed so we never consider placing again
 					characterPlaced = true;
+					// flag so that we don't create a floor hole in the space where player is spawned
+					makeFloorHole = false;
 				}
 
-				// create floor and ceiling
-				CreateChildPrefab(floorPrefab, floorParent, x, 0, z);
+				//create a floor or hole
+				if (Random.Range(0,10) == 1 && makeFloorHole) {
+					//don't create a floor i.e create a hole
+				} else {
+					// create floor
+					CreateChildPrefab(floorPrefab, floorParent, x, 0, z);
+				}
 
+				// create ceiling
 				if (generateRoof) {
 					CreateChildPrefab(ceilingPrefab, wallsParent, x, 4, z);
 				}
+				makeFloorHole = true;
 			}
 		}
 
