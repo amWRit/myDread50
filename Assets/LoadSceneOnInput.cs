@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneOnInput : MonoBehaviour {
 
+	private string nextScene;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -12,8 +14,22 @@ public class LoadSceneOnInput : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetAxis("Submit") == 1) {
-			SceneManager.LoadScene("Play");
+		// Get active scene
+        Scene scene = SceneManager.GetActiveScene();
+
+        // change scene according to the active scene
+        if (scene.name == "Title")
+        {
+        	nextScene = "Play";
+        }
+        else if (scene.name == "GameOver")
+        {
+        	nextScene = "Title";
+        }
+
+		if (Input.GetAxis("Submit") == 1) 
+		{
+			SceneManager.LoadScene(nextScene);
 		}
 	}
 }
