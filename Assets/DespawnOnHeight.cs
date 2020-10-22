@@ -20,6 +20,7 @@ public class DespawnOnHeight : MonoBehaviour
         if (yPos < 1.2) {
         	DontDestroy.instance = null;
         	Destroy(GameObject.Find("WhisperSource"));
+        	LevelGenerator.mazeNumber = 1;
         	SceneManager.LoadScene("GameOver");
         }
     }

@@ -35,6 +35,8 @@ public class LevelGenerator : MonoBehaviour {
 	// we use these to dig through our maze and to spawn the pickup at the end
 	private int mazeX = 4, mazeY = 1;
 
+	public static int mazeNumber = 1;
+
 	// Use this for initialization
 	void Start () {
 
@@ -54,6 +56,9 @@ public class LevelGenerator : MonoBehaviour {
 					characterController.transform.SetPositionAndRotation(
 						new Vector3(x, 1, z), Quaternion.identity
 					);
+
+					var myPickup = Instantiate(pickup, new Vector3(x, 1, z+2), Quaternion.identity);
+					myPickup.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
 
 					// flag as placed so we never consider placing again
 					characterPlaced = true;
@@ -78,8 +83,8 @@ public class LevelGenerator : MonoBehaviour {
 		}
 
 		// spawn the pickup at the end
-		var myPickup = Instantiate(pickup, new Vector3(mazeX, 1, mazeY), Quaternion.identity);
-		myPickup.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+		//var myPickup = Instantiate(pickup, new Vector3(mazeX, 1, mazeY), Quaternion.identity);
+		//myPickup.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
 	}
 
 	// generates the booleans determining the maze, which will be used to construct the cubes

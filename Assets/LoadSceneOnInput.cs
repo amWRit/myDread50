@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LoadSceneOnInput : MonoBehaviour {
 
 	private string nextScene;
+	public int mazeNumber;
 
 	// Use this for initialization
 	void Start () {
