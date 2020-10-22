@@ -21,5 +21,6 @@ __Game over on falling through holes__
 
 __Maze number__
 - Keeps track of which maze they’re in, incrementing each time they progress to the next maze. Show the maze number during Play scene.
+- On game over, the maze number is reset to 1. 
 
 _Game over sound source: https://www.storyblocks.com/_ 
