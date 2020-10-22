@@ -17,7 +17,7 @@ public class DespawnOnHeight : MonoBehaviour
     {
         yPos = transform.position.y;
         // yPos of the player is 1.238275 standing on floor; less than that means player has fallen
-        if (yPos < 1.2) {
+        if (yPos < 1) {
         	DontDestroy.instance = null;
         	Destroy(GameObject.Find("WhisperSource"));
         	LevelGenerator.mazeNumber = 1;

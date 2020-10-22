@@ -57,7 +57,8 @@ public class LevelGenerator : MonoBehaviour {
 						new Vector3(x, 1, z), Quaternion.identity
 					);
 
-					var myPickup = Instantiate(pickup, new Vector3(x, 1, z+2), Quaternion.identity);
+					// temporarily spawning coin near player for test purposes
+					var myPickup = Instantiate(pickup, new Vector3(x, 1, z+5), Quaternion.identity);
 					myPickup.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
 
 					// flag as placed so we never consider placing again
